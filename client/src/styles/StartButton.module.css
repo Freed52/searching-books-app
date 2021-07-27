@@ -1,0 +1,10 @@
+.button {
+    width: fit-content;
+    height: fit-content;
+    padding: 2vh 8vh;
+    background-color: #E4EFE7;
+    font-size: calc(4vh + 2 * ((100vh - 769px) / 2880));
+    text-decoration: none;
+    text-align: center;
+    color: #064420;
+}

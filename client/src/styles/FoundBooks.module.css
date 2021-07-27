@@ -1,0 +1,133 @@
+.foundbooks_wrapper {
+    display: grid;
+    grid-template-areas: 
+    'totalcount'
+    'morebutton'
+    'books';
+    grid-template-rows: auto auto 1fr;
+}
+
+.totalcount {
+    grid-area: totalcount;
+    display: flex;
+    padding: 2vh 0;
+    justify-content: center;
+    align-self: center;
+    color: #064420;
+    font-weight: 700;
+    font-size: calc(4vh + 2 * ((100vh - 769px) / 2880));
+}
+
+.morebooks_button {
+    grid-area: morebutton;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.morebooks_button > button {
+    width: fit-content;
+    height: fit-content;
+    padding: 2vh 8vh;
+	background: #E4EFE7;
+	color: #064420;
+	border: none;
+	font: inherit;
+    font-size: calc(2vh + 2 * ((100vh - 769px) / 2880));
+	cursor: pointer;
+	outline: inherit;
+}
+
+.books {
+    grid-area: books;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33.33%, 1fr));
+    padding: 4vh;
+}
+
+.books > a {
+    margin: 2vh;
+    padding: 2vh 4vh;
+    text-decoration: none;
+    color: #064420;
+    background-color: #FAF1E6;
+}
+
+.book_card {
+    display: grid;
+    grid-template-areas: 
+    'title'
+    'cover'
+    'authors'
+    'category';
+    grid-template-rows: 1fr;
+}
+
+.title {
+    grid-area: title;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 4vh;
+    font-size: calc(3vh + 2 * ((100vh - 769px) / 2880));
+    font-weight: 700;
+    padding: 1vh 0;
+    text-overflow: ellipsis;
+
+}
+
+.cover, .book_card > svg {
+    grid-area: cover;
+    max-width: 100%;
+    height: 24vh;
+}
+
+.authors {
+    grid-area: authors;
+    height: 8vh;
+    list-style-type: none;
+    padding: 0;
+    margin: 2vh 0 0 0;
+    font-size: calc(3vh + 2 * ((100vh - 769px) / 2880));
+    font-weight: 500;
+    overflow: scroll;
+}
+
+.category {
+    grid-area: category;
+    font-size: calc(2vh + 2 * ((100vh - 769px) / 2880));
+    font-weight: 500;  
+}
+
+.plug {
+    font-size: calc(2vh + 2 * ((100vh - 769px) / 2880));
+    font-weight: 700;
+}
+
+.warn {
+    position: absolute;
+    min-width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    color: #064420;
+    padding: 2vh 0;
+    font-size: calc(3vh + 2 * ((100vh - 769px) / 2880));
+}
+
+@media only screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 767px) {
+    .books {
+        grid-template-columns: auto;
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 767px) {
+    .books {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .books {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

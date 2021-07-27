@@ -1,0 +1,35 @@
+version: "2"
+services:
+    client:
+        image: client-image
+        restart: always
+        build:
+            context: ./client
+            dockerfile: ./Dockerfile
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client:/client
+            - /client/node_modules
+        links:
+            - api
+        networks:
+            - webappnetwork
+    api:
+        image: api-image
+        env_file: ./api/.env
+        restart: always
+        build:
+            context: ./api
+            dockerfile: ./Dockerfile
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./api:/api
+            - /api/node_modules
+        networks:
+            - webappnetwork
+
+networks:
+    webappnetwork:
+        driver: bridge

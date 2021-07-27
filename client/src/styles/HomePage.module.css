@@ -1,0 +1,10 @@
+.home_page_wrapper {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'books';
+    grid-auto-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: 100vh;
+}
